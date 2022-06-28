@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<style type="text/css" media="screen">
+  .container {
+    margin: 10px auto;
+    max-width: 600px;
+    text-align: center;
+  }
+
+  h1 {
+    margin: 30px 0;
+    font-size: 4em;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+</style>
+
+<center>
+  <img id="img404" src="">
+</center>
+
+<script>
+  var imgPaths = ["https://i.pinimg.com/564x/9a/39/06/9a3906d96cb34652f0699007e7a90df0.jpg", "https://i.pinimg.com/564x/a9/60/77/a960778e6ab8522441b4af83ee791b76.jpg"]
+  var rand = Math.floor((Math.random() * imgPaths.length));
+  document.getElementById("img404").src = imgPaths[rand];
+</script>

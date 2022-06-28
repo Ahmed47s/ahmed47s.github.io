@@ -1,0 +1,360 @@
+/**
+ * Reset some basic elements
+ */
+body, h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, hr,
+dl, dd, ol, ul, figure {
+  margin: 0;
+  padding: 0;
+}
+
+
+
+/**
+ * Basic styling
+ */
+body {
+  font-family: $base-font-family;
+  font-weight: $base-font-weight;
+  font-size: #{$base-font-size};
+  font-display: swap;
+  line-height: #{$base-line-height};
+  color: $text-color;
+  background-color: $background-color;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+     -moz-font-feature-settings: "kern" 1;
+       -o-font-feature-settings: "kern" 1;
+          font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+
+
+/**
+ * Set `margin-bottom` to maintain vertical rhythm
+ */
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+ul, ol, dl, figure,
+%vertical-rhythm {
+  margin-bottom: $spacing-unit / 2;
+}
+
+
+
+/**
+ * `main` element
+ */
+main {
+  display: block; /* Default value of `display` of `main` element is 'inline' in IE 11. */
+}
+
+
+
+/**
+ * Images
+ */
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+
+
+/**
+ * Figures
+ */
+figure > img {
+  display: block;
+}
+
+figcaption {
+  font-size: $small-font-size;
+}
+
+
+
+/**
+ * Lists
+ */
+ul, ol {
+  margin-left: $spacing-unit;
+}
+
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+}
+
+
+
+/**
+ * Headings
+ */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $base-font-weight * 1.5;
+}
+
+/**
+ * Links
+ */
+a {
+  color: $brand-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  .social-media-list &:hover {
+    text-decoration: none;
+
+    .username {
+      text-decoration: underline;
+    }
+  }
+}
+
+/**
+ * Blockquotes
+ */
+blockquote {
+  color: $grey-color;
+  border-left: 4px solid $grey-color-light;
+  padding-left: $spacing-unit / 2;
+  @include relative-font-size(1.125);
+  letter-spacing: -1px;
+  font-style: italic;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+
+
+/**
+ * Code formatting
+ */
+pre,
+code {
+  @include relative-font-size(0.9375);
+  color: $text-color;
+}
+
+*:not(pre) > code {
+  padding: 3px 6px;
+  border-radius: 3px;
+  background-color: #eee;
+  margin: 0 5px;
+}
+
+pre {
+  overflow-x: auto;
+  position: relative;
+  background-color: #f0f0f0;
+
+  > code {
+    display: inline-block;
+    padding: 20px!important;
+    background-color: transparent;
+    border: 0;
+  }
+
+  table, pre {
+    margin-bottom: 0;
+
+    .gutter, .code {
+      padding: 6px;
+      border: none;
+    }
+  }
+}
+
+
+
+/**
+ * Wrapper
+ */
+.wrapper {
+  max-width: $content-width;
+  margin: auto;
+  padding-right: $spacing-unit;
+  padding-left: $spacing-unit;
+  @extend %clearfix;
+}
+
+
+
+/**
+ * Clearfix
+ */
+%clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/**
+ * Tables
+ */
+table {
+  display: block;
+  margin-bottom: $spacing-unit;
+  width: 100%;
+  text-align: $table-text-align;
+  color: lighten($text-color, 5%);
+  border-collapse: collapse;
+  overflow: auto;
+
+  tr {
+    &:nth-child(even) {
+      background-color: lighten($grey-color-light, 6%);
+    }
+  }
+
+  th, td {
+    padding: ($spacing-unit / 3) ($spacing-unit / 2);
+  }
+
+  th {
+    background-color: lighten($grey-color-light, 3%);
+    border: 1px solid darken($grey-color-light, 4%);
+    border-bottom-color: darken($grey-color-light, 12%);
+  }
+
+  td {
+    border: 1px solid $grey-color-light;
+  }
+}
+
+/**
+ * Flex layout
+ */
+%flex {
+  display: flex;
+}
+
+%flex-1 {
+  flex: 1;
+  min-width: 0; /* <-- fix flexbox width with pre tags  */
+}
+
+/**
+ * Flex sticky
+ */
+@mixin flex-sticky($top) {
+  position: sticky;
+  position: -moz-sticky; /* <-- fix sticky compatibility issue */
+  position: -ms-sticky;
+  position: -o-sticky;
+  position: -webkit-sticky;
+  align-self: flex-start; /* <-- fix the sticky not work issue */
+  transform: scale(0.9999); /* <-- fix the sticky x overflow issue */
+  top: $top;
+}
+
+/**
+ * Vertical center
+ */
+@mixin vertical-center($position) {
+  position: $position;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/**
+ * Horizontal center
+ */
+@mixin horizontal-center($position) {
+  position: $position;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/**
+ * Center background image
+ */
+@mixin center-image {
+  height: 100%;
+  max-width: 1000%;
+  background-size: cover;
+  background-position: center center;
+  overflow: hidden;
+}
+
+.EasyMDEContainer {
+  width: 100%;
+  height: 100%;
+  border: 3px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  font-family: 'Droid Arabic Kufi', serif;
+}
+
+.CodeMirror, .editor-preview {
+color: #000000;
+border: 3px solid rgb(209, 207, 207);
+background-color: #ffffff;
+}
+
+input[type=text] {
+width: 100%;
+padding: 12px 20px;
+margin: 8px 0;
+box-sizing: border-box;
+border: 3px solid #ccc;
+outline: none;
+border-radius: 25px;
+font-size: 14px;
+font-family:'Droid Arabic Kufi';
+}
+
+input[type=text]:focus {
+border: 3px solid #555;
+}
+
+button {
+  width: 150px;
+  height: 90px;
+  font-family: 'Roboto', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  /* border-radius: 45px; */
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+.filter-green {
+  filter: invert(0%) sepia(100%) saturate(31%) hue-rotate(83deg) brightness(103%) contrast(106%);
+}
+
+label.post {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+ul, ol {
+  margin-right: 30px;
+}
